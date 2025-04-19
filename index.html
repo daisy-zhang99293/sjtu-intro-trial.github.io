@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上海交通大学介绍</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C20',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .image-placeholder {
+            background-color: #f3f4f6;
+            min-height: 200px;
+            max-height: 400px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .image-placeholder.landscape {
+            aspect-ratio: 4/3;
+        }
+        .image-placeholder.portrait {
+            aspect-ratio: 3/4;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #C20, #C20);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.8s ease;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            width: 1rem;
+            height: 1rem;
+            background-color: #C20;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+        .hero-button {
+            background-color: #C20;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-start h-16">
+                <div class="flex items-center">
+                    <span class="text-primary text-2xl font-bold">上海交通大学介绍</span>
+                </div>
+                <div class="flex items-center space-x-4 ml-8">
+                    <a href="#campus-spots" class="text-gray-600 hover:text-primary transition-colors">校园景点</a>
+                    <a href="#campus-life" class="text-gray-600 hover:text-primary transition-colors">大学生活</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="pt-16">
+        <!-- 主页面 -->
+        <section class="min-h-screen flex items-center justify-center bg-gradient-to-r from-primary to-primary/80 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-8 fade-in">上海交通大学</h1>
+                <p class="text-xl md:text-2xl mb-12 fade-in">探索这座百年学府的历史、景点与丰富的校园生活</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center fade-in">
+                    <a href="#campus-spots" class="hero-button">探索校园</a>
+                    <a href="#campus-life" class="hero-button">体验生活</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 景点介绍 -->
+        <section id="campus-spots" class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12">校园景点</h2>
+                
+                <div class="timeline">
+                    <!-- 安泰楼 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                            <h3 class="text-2xl font-semibold mb-4">安泰楼（包兆龙图书馆）</h3>
+                            <div class="image-placeholder mb-4">
+                                <img src="./images/安泰.jpg" alt="安泰楼图片" class="w-full h-auto">
+                            </div>
+                            <p class="text-gray-600 mb-4">1981年，包玉刚先生捐款1000万美元为上海交通大学兴建图书馆，1985年包兆龙图书馆正式落成。2015年改建后，成为安泰经济与管理学院的主楼。</p>
+                            <p class="text-gray-600">安泰楼作为安泰经济与管理学院的教学科研主阵地，设有多功能报告厅、教室、实验室等，为师生提供先进的教学科研场所。同时，作为管理与社科分馆，馆藏主要为经济管理及社科类资源，总藏书量约为116万册，阅览座位约800席。</p>
+                        </div>
+                    </div>
+
+                    <!-- 新上院 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                            <h3 class="text-2xl font-semibold mb-4">新上院</h3>
+                            <div class="image-placeholder mb-4">
+                                <img src="./images/新上院.jfif" alt="新上院图片" class="w-full h-auto">
+                            </div>
+                            <p class="text-gray-600">新上院其原址上院建于1900年，1953年因建筑老化拆除，1954年在原址新建。新上院为中国古典主义样式，兼具苏联建筑风格，面积9746平方米，高五层。一二层是实验室，三层及以上为教室，主楼后部有阶梯教室与活动室。2004年它被列为上海市优秀历史建筑，如今是学校主要教学楼，一楼大厅有盛宣怀半身铜像，部分区域作为社科阅览室。</p>
+                        </div>
+                    </div>
+
+                    <!-- 中院 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                            <h3 class="text-2xl font-semibold mb-4">中院</h3>
+                            <div class="image-placeholder mb-4">
+                                <img src="./images/中院.jpg" alt="中院图片" class="w-full h-auto">
+                            </div>
+                            <p class="text-gray-600">中院是校园中惟一一幢建成于19世纪的教学楼，于光绪二十四年（1898）破土动工，1899年夏建成。这是一幢三层楼砖木结构的西式建筑，采用英国样式主义风格，建筑面积为4950平方米。建成之初，中院集教学、办公、食宿等功能于一体，是交大初创时期的见证和参与者。</p>
+                        </div>
+                    </div>
+
+                    <!-- 新中院-董浩云航运博物馆 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                            <h3 class="text-2xl font-semibold mb-4">新中院-董浩云航运博物馆</h3>
+                            <div class="image-placeholder mb-4">
+                                <img src="./images/董浩云.jpg" alt="新中院图片" class="w-full h-auto">
+                            </div>
+                            <p class="text-gray-600">建筑历史：新中院建于1910年，是校内第一幢独立的学生宿舍，早期用于中学生住宿。2002年，香港董氏慈善基金会捐资修缮，将其改为董浩云航运博物馆。</p>
+                            <p class="text-gray-600">建筑特色：该建筑为传统砖木结构，采用"康白渡式"风格，高二层，口字形平面，青砖墙面，红砖腰线，外围有贯通四周的走廊，内设楼梯，中间设有天井，高挑轩敞，斜顶是通透的玻璃棚。</p>
+                        </div>
+                    </div>
+
+                    <!-- 校史博物馆 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                            <h3 class="text-2xl font-semibold mb-4">校史博物馆</h3>
+                            <div class="image-placeholder mb-4">
+                                <img src="./images/老图书馆.jfif" alt="校史博物馆图片" class="w-full h-auto">
+                            </div>
+                            <p class="text-gray-600">老图书馆建成于1919年，采用文艺复兴的巴洛克风格，纵向五段式构图，平面设计为"山"字形，由清水红砖砌筑而成。这里曾是交大学子徜徉知识海洋、饱览先进科学文化之地，钱学森、吴文俊等都曾在这里留下过学习的身影。</p>
+                        </div>
+                    </div>
+
+                    <!-- 老校门 -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                            <h3 class="text-2xl font-semibold mb-4">老校门（庙门）</h3>
+                            <div class="image-placeholder mb-4">
+                                <img src="./images/庙门.jpg" alt="老校门图片" class="w-full h-auto">
+                            </div>
+                            <p class="text-gray-600">老校门是上海交通大学的标志性建筑之一，建成于1935年，被学生亲切称为"庙门"。校门造型仿传统官式大门，三开间，单檐歇山屋顶，展现了中国传统的建筑风格，朱门碧瓦，大红门上有两只兽头大铜环，竖匾书"交通大学"四字。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 历史纪念物 -->
+                <h2 class="text-3xl font-bold text-center my-12">历史纪念物</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 大草坪 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover fade-in">
+                        <h3 class="text-2xl font-semibold mb-4">大草坪</h3>
+                        <div class="image-placeholder mb-4">
+                            <img src="./images/草坪.jpg" alt="大草坪图片" class="w-full h-auto">
+                        </div>
+                        <p class="text-gray-600">大草坪位于校区中央位置，占地约2.5万平方米，是老交大最大的开放空间。草坪周围有许多具有历史价值和艺术风格的建筑和雕塑，如中院、英烈群雕、五卅纪念碑等。</p>
+                    </div>
+
+                    <!-- 英烈群雕 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover fade-in">
+                        <h3 class="text-2xl font-semibold mb-4">英烈群雕</h3>
+                        <div class="image-placeholder mb-4">
+                            <img src="./images/群雕.jfif" alt="英烈群雕图片" class="w-full h-auto">
+                        </div>
+                        <p class="text-gray-600">为铭记与缅怀自辛亥革命至解放战争时期坚持真理、艰苦奋斗、前仆后继、英勇献身的先贤英烈，20世纪80年代起，围绕史霄雯、穆汉祥烈士墓，学校建造了这座英烈群雕，于1991年建成。</p>
+                    </div>
+
+                    <!-- 五卅纪念碑 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover fade-in">
+                        <h3 class="text-2xl font-semibold mb-4">五卅纪念碑</h3>
+                        <div class="image-placeholder mb-4">
+                            <img src="./images/五卅.jfif" alt="五卅纪念碑图片" class="w-full h-auto">
+                        </div>
+                        <p class="text-gray-600">"五卅惨案"发生后，全国反帝爱国运动高潮兴起，上海交通大学的师生积极投身其中，为了纪念这一重要历史事件和在运动中牺牲的烈士，特设立了五卅纪念碑。</p>
+                    </div>
+
+                    <!-- 钱学森图书馆 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover fade-in">
+                        <h3 class="text-2xl font-semibold mb-4">钱学森图书馆</h3>
+                        <div class="image-placeholder mb-4">
+                            <img src="./images/钱学森.jfif" alt="钱学森图书馆图片" class="w-full h-auto">
+                        </div>
+                        <p class="text-gray-600">钱学森图书馆于2011年12月11日钱学森诞辰100周年之际建成对外开放，是一座致敬中国爱国科学家钱学森的国家级纪念馆、博物馆。由中国建筑设计师何镜堂院士领衔设计，整体为方鼎式的赭红色建筑，外墙上刻有钱学森头像浮雕。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 大学生活 -->
+        <section id="campus-life" class="bg-gray-100 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12">大学生活</h2>
+                
+                <!-- 上课的日子 -->
+                <h3 class="text-2xl font-semibold mb-6 text-center">上课的日子</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover md:col-span-2">
+                        <div class="image-placeholder landscape mb-4">
+                            <img src="./images/学习1.png" alt="上课展示" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">上课展示</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="image-placeholder landscape mb-4">
+                            <img src="./images/图片2.jpg" alt="很多专业课和书！" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">很多专业课和书！</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="image-placeholder portrait mb-4">
+                            <img src="./images/美食.jpg" alt="好好学习 也要好好吃饭" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">好好学习 也要好好吃饭</h4>
+                    </div>
+                </div>
+
+                <!-- 社会实践 -->
+                <h3 class="text-2xl font-semibold mb-6 text-center">社会实践</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover md:col-span-2">
+                        <div class="image-placeholder landscape mb-4">
+                            <img src="./images/社会实践2.png" alt="学院的集体活动——129歌会" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">学院的集体活动——129歌会</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="image-placeholder landscape mb-4">
+                            <img src="./images/社会实践3.png" alt="暑期社会实践去企业调研" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">暑期社会实践去企业调研</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="image-placeholder landscape mb-4">
+                            <img src="./images/社会实践4.png" alt="多种志愿活动——上海马拉松比赛志愿者" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">多种志愿活动——上海马拉松比赛志愿者</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover md:col-span-2">
+                        <div class="image-placeholder landscape mb-4">
+                            <img src="./images/社会实践.png" alt="在宁夏的沙漠里种草治沙" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">在宁夏的沙漠里种草治沙</h4>
+                    </div>
+                </div>
+
+                <!-- 不一样的体验 -->
+                <h3 class="text-2xl font-semibold mb-6 text-center">不一样的体验</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="image-placeholder portrait mb-4">
+                            <img src="./images/支教.jpg" alt="支教" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">广西支教：去祖国需要的地方见可爱的人</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover md:col-span-2">
+                        <div class="image-placeholder landscape mb-4">
+                            <img src="./images/实习2.png" alt="雅诗兰黛：去公司里像大人一样工作" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">雅诗兰黛暑期实习：去公司里像大人一样工作~很多职业可以体验哦</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover md:col-span-2">
+                        <div class="image-placeholder landscape mb-4">
+                            <img src="./images/实习3.png" alt="比赛图片" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">美国大学生数学竞赛</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="image-placeholder landscape mb-4">
+                            <img src="./images/实习1.png" alt="比赛图片" class="w-full h-auto">
+                        </div>
+                        <h4 class="text-lg font-semibold text-center">荣耀精英挑战赛</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">关于作者</h3>
+                    <p class="mb-2">作者姓名：张严</p>
+                    <p class="mb-2">微信号：13661922892</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">版权信息</h3>
+                    <p>© 2024 上海交通大学介绍. 保留所有权利。</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 添加滚动动画
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        if (entry.target.classList.contains('timeline-item')) {
+                            entry.target.classList.add('visible');
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.fade-in, .timeline-item').forEach((el) => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
